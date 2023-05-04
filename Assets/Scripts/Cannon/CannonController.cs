@@ -106,20 +106,18 @@ public class CannonController : MonoBehaviour
 
         ball.SetActive(true);
 
-        Rigidbody ballRB = ball.gameObject.GetComponent<Rigidbody>();
+        CannonBallBehaviour ballScript = ball.gameObject.GetComponent<CannonBallBehaviour>();
 
-        if(ballRB == null)
+        if(ballScript == null)
         {
             ObjectPoolManager.ReturnObjectToPool(ball, projectile);
-            Debug.LogError("ERROR - Ball has no rigidbody.");
+            Debug.LogError("ERROR - Ball has no behvaiour script.");
             return;
         }
 
         Vector3 direction = (firePoint.position - barrelBase.position).normalized;
 
-        ball.transform.position = firePoint.position;
-
-        ballRB.AddForce(direction * fireForce, ForceMode.Impulse);
+        ballScript.FireBall(direction * fireForce, firePoint.position);
     }
     private void FireTimerTick(float delta)
     {
