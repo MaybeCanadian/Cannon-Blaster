@@ -69,6 +69,8 @@ public class CannonBallBehaviour : MonoBehaviour
         {
             Debug.Log("Hit!");
 
+            target.takeDamage(1);
+
             RemoveBall();
 
             return;
