@@ -31,8 +31,8 @@ public class CannonController : MonoBehaviour
     #endregion
 
     public Vector3 startingYawOffset;
-
     private Vector2 moveInput = Vector2.zero;
+    public GameObject cannonBallPrefab = null;
 
     private void Start()
     {
@@ -80,6 +80,12 @@ public class CannonController : MonoBehaviour
     public void FireCannon()
     {
         Debug.Log("Fire");
+    }
+    private GameObject GetCannonBall()
+    {
+        GameObject ball = Instantiate(cannonBallPrefab);
+
+        return ball;
     }
     #endregion
 
