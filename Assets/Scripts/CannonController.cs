@@ -7,6 +7,7 @@ public class CannonController : MonoBehaviour
     #region Member Variables
     [Header("Cannon Parts")]
     public Transform cannonBarrel;
+    public Transform cameraPos;
 
     [Header("Pitch")]
     [SerializeField, Tooltip("The current pitch of the cannon")]
@@ -29,18 +30,31 @@ public class CannonController : MonoBehaviour
     private float yawRate = 1.0f;
     #endregion
 
-    #region Cannon Functions
-    public void ChangePitch(int direction, float delta)
+    public Vector3 startingYawOffset;
+
+    private Vector2 moveInput = Vector2.zero;
+
+    private void Start()
     {
-        cannonPitch += pitchRate * direction * delta;
+        startingYawOffset = transform.localRotation.eulerAngles;
+    }
+
+    #region Cannon Functions
+    public void ChangePitch(float direction, float delta)
+    {
+        cannonPitch -= pitchRate * direction * delta;
 
         ClampPitch();
+
+        cannonBarrel.localRotation = Quaternion.Euler(cannonPitch, 0.0f, 0.0f);
     }
     public void ChangeYaw(float direction, float delta) 
     {
         cannonYaw += yawRate * direction * delta;
 
         ClampYaw();
+
+        transform.localRotation = Quaternion.Euler(new Vector3(0.0f, cannonYaw, 0.0f) + startingYawOffset);
     }
     public void SetPitch(float value)
     {
@@ -59,6 +73,30 @@ public class CannonController : MonoBehaviour
     private void ClampYaw()
     {
         cannonYaw = Mathf.Clamp(cannonYaw, minYaw, maxYaw);
+    }
+    #endregion
+
+    #region Fire
+    public void FireCannon()
+    {
+        Debug.Log("Fire");
+    }
+    #endregion
+
+    #region Input
+    public void SetMoveInput(Vector2 input)
+    {
+        moveInput = input;
+    }
+    #endregion
+
+    #region Update
+    private void Update()
+    {
+        ChangePitch(moveInput.y, Time.deltaTime);
+        ChangeYaw(moveInput.x, Time.deltaTime);
+
+
     }
     #endregion
 }

@@ -5,12 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
+    [Header("Objects")]
     public CannonController cannon;
     public PlayerMovement player;
     public PlayerInput input;
 
-    public Vector2 moveInput = Vector2.zero;
+    [Header("Object Checking")]
+    public LayerMask cannonLayer;
+    public float raycastCheckDist = 5.0f;
+    public GameObject currentObject = null;
 
+    [Header("Inputs")]
     public PlayerControlMode currentMode = PlayerControlMode.Player;
 
     #region Init Functions
@@ -18,6 +23,9 @@ public class PlayerInputController : MonoBehaviour
     {
         player = GetComponent<PlayerMovement>();
         input = GetComponent<PlayerInput>();
+
+        currentMode = PlayerControlMode.Player;
+        CameraController.instance.AttachToObject(player.head);
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -50,6 +58,10 @@ public class PlayerInputController : MonoBehaviour
         {
             return;
         }
+
+        Vector2 moveInput = context.ReadValue<Vector2>();
+
+        cannon.SetMoveInput(moveInput);
     } 
     public void OnCannonFireInput(InputAction.CallbackContext context)
     {
@@ -62,6 +74,8 @@ public class PlayerInputController : MonoBehaviour
         {
             return;
         }
+
+        cannon.FireCannon();
     }
     public void OnCannonLeaveInput(InputAction.CallbackContext context)
     {
@@ -74,18 +88,23 @@ public class PlayerInputController : MonoBehaviour
         {
             return;
         }
+
+        cannon = null;
+
+        SwitchToPlayer();
     }
     #endregion
 
     #region Player
     private void HandlePlayerUpdate()
     {
+
         if (!CheckPlayerMode())
         {
             return;
         }
 
-        //DeterminePlayerMouse();
+        CheckInFront();
     }
     public void OnPlayerMoveInput(InputAction.CallbackContext context)
     {
@@ -135,20 +154,44 @@ public class PlayerInputController : MonoBehaviour
             return;
         }
 
-
-        Debug.Log("Interact");
-        //try posses cannon
-    }
-    private void DeterminePlayerMouse()
-    {
-        if (!CheckPlayerMode())
+        if(currentObject == null)
         {
             return;
         }
 
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue() * Time.smoothDeltaTime;
+        CannonController cannonScript = currentObject.GetComponent<CannonController>();
 
-        player.SetLookInput(mouseDelta);
+        if(cannonScript == null)
+        {
+            Debug.Log("object is not a cannon");
+            return;
+        }
+
+        cannon = cannonScript;
+
+        SwitchToCannon();
+    }
+    private void CheckInFront()
+    {
+
+        if(!CheckPlayerMode())
+        {
+            return;
+        }
+
+        Vector3 startPos = player.head.transform.position;
+        Vector3 direction = player.head.transform.forward;
+
+        if(Physics.Raycast(startPos, direction, out RaycastHit hit, raycastCheckDist, cannonLayer))
+        {
+            Debug.DrawRay(startPos, direction, Color.green);
+            currentObject = hit.collider.gameObject;
+        }
+        else
+        {
+            Debug.DrawRay(startPos, direction, Color.red);
+            currentObject = null;
+        }
     }
     #endregion
 
@@ -162,6 +205,8 @@ public class PlayerInputController : MonoBehaviour
 
         currentMode = PlayerControlMode.Player;
 
+        CameraController.instance.AttachToObject(player.head);
+
         input.SwitchCurrentActionMap("Player");
     }
     public void SwitchToCannon()
@@ -173,7 +218,11 @@ public class PlayerInputController : MonoBehaviour
 
         currentMode = PlayerControlMode.Cannon;
 
+        CameraController.instance.AttachToObject(cannon.cameraPos);
+
         input.SwitchCurrentActionMap("Cannon");
+
+        Debug.Log("switched");
     }
     private bool CheckAnyValid()
     {

@@ -137,7 +137,8 @@ GameObject:
   - component: {fileID: 4694332011190301274}
   - component: {fileID: 4694332011190301273}
   - component: {fileID: 4694332011190301271}
-  - component: {fileID: 4694332011190301270}
+  - component: {fileID: 965603995}
+  - component: {fileID: 965603994}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,7 +160,7 @@ Transform:
   m_Children:
   - {fileID: 4694332010868395900}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4694332011190301275
 MeshFilter:
@@ -261,9 +262,30 @@ MonoBehaviour:
   maxPitch: 90
   minPitch: -90
   bodyRotation: 0
-  rotateSpeed: 300
+  rotateSpeed: 100
   jumpForce: 3
---- !u!114 &4694332011190301270
+--- !u!114 &965603995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694332011190301279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8314cae2cbd6b4f868d40564706b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 0}
+  player: {fileID: 0}
+  input: {fileID: 0}
+  cannonLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastCheckDist: 5
+  moveInput: {x: 0, y: 0}
+  currentMode: 0
+--- !u!114 &965603994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,25 +311,61 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnCannonMoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b6feed4e-ee27-4be7-9bf1-a93658176989
     m_ActionName: Cannon/Change Angle[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/ZhiXu
       Tech. GamePad/hat/up,/ZhiXu Tech. GamePad/hat/down,/ZhiXu Tech. GamePad/hat/left,/ZhiXu
       Tech. GamePad/hat/right,/ZhiXu Tech. GamePad/stick/up,/ZhiXu Tech. GamePad/stick/down,/ZhiXu
       Tech. GamePad/stick/left,/ZhiXu Tech. GamePad/stick/right]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnCannonFireInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9b8a1293-9cbb-45eb-a3fd-9ef9ba97315a
     m_ActionName: Cannon/Fire[/Keyboard/space,/Mouse/leftButton,/ZhiXu Tech. GamePad/button10,/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnCannonLeaveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: af9de5dc-3336-4752-8ada-159e7f76c2c4
     m_ActionName: Cannon/Leave Cannon[/Keyboard/e,/ZhiXu Tech. GamePad/button2,/Keyboard/escape,/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4694332011190301271}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnMoveInput
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnPlayerMoveInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -324,9 +382,9 @@ MonoBehaviour:
       Tech. GamePad/hat/right]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4694332011190301271}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnJumpInput
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnPlayerJumpInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -339,14 +397,26 @@ MonoBehaviour:
     m_ActionId: 316ca2e4-9039-44eb-a572-b5bd633af6bd
     m_ActionName: Player/Jump[/Keyboard/space,/ZhiXu Tech. GamePad/trigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnPlayerInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 49dbe6db-0151-4cea-a3d3-6664fe69b2a3
     m_ActionName: Player/Interact[/Keyboard/e,/ZhiXu Tech. GamePad/button5]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4694332011190301271}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnMouseLook
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnPlayerLookInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -357,7 +427,39 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 43196ccd-7d5e-488e-ab27-cdd64f65c503
-    m_ActionName: Player/Look[/Mouse/delta/y,/Mouse/delta/x]
+    m_ActionName: Player/Look[/ZhiXu Tech. GamePad/rz,/ZhiXu Tech. GamePad/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: SwapMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6d3a2f0e-f3de-41ce-89cc-cf90dfe47df8
+    m_ActionName: Cannon/Debug Swap Mode[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 965603995}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: SwapMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8ef25135-b043-4c37-bc2d-826bbc05af6a
+    m_ActionName: Player/Debug Swap Mode[/Keyboard/o]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

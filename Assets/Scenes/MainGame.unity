@@ -813,9 +813,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4694332011190301271, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
-      propertyPath: rotateSpeed
-      value: 100
+    - target: {fileID: 965603995, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+      propertyPath: currentMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 965603995, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+      propertyPath: raycastCheckDist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 965603995, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+      propertyPath: cannonLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694332010547631873, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694332010547631873, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 4694332011190301272, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
       propertyPath: m_RootOrder
@@ -865,17 +881,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4694332011190301270, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4694332011190301279, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4694332010547631873, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 965603995}
-    - targetCorrespondingSourceObject: {fileID: 4694332011190301279, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 965603994}
+      addedObject: {fileID: 1325766514}
   m_SourcePrefab: {fileID: 100100000, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
 --- !u!1 &186931979
 GameObject:
@@ -2371,208 +2383,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 946cf91a41a84104db185aa876957ade, type: 3}
   m_PrefabInstance: {fileID: 957123840}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &965603987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4694332011190301279, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
-  m_PrefabInstance: {fileID: 176649406}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &965603994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965603987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 59d0b3a74310d044d8d81666a8dd4d79, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnCannonMoveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b6feed4e-ee27-4be7-9bf1-a93658176989
-    m_ActionName: Cannon/Change Angle[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/ZhiXu
-      Tech. GamePad/hat/up,/ZhiXu Tech. GamePad/hat/down,/ZhiXu Tech. GamePad/hat/left,/ZhiXu
-      Tech. GamePad/hat/right,/ZhiXu Tech. GamePad/stick/up,/ZhiXu Tech. GamePad/stick/down,/ZhiXu
-      Tech. GamePad/stick/left,/ZhiXu Tech. GamePad/stick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnCannonFireInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9b8a1293-9cbb-45eb-a3fd-9ef9ba97315a
-    m_ActionName: Cannon/Fire[/Keyboard/space,/Mouse/leftButton,/ZhiXu Tech. GamePad/button10,/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnCannonLeaveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: af9de5dc-3336-4752-8ada-159e7f76c2c4
-    m_ActionName: Cannon/Leave Cannon[/Keyboard/e,/ZhiXu Tech. GamePad/button2,/Keyboard/escape,/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnPlayerMoveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4860ae90-0b25-4376-ac6b-314e035b46e3
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/ZhiXu
-      Tech. GamePad/stick/up,/ZhiXu Tech. GamePad/stick/down,/ZhiXu Tech. GamePad/stick/left,/ZhiXu
-      Tech. GamePad/hat/up,/ZhiXu Tech. GamePad/hat/down,/ZhiXu Tech. GamePad/hat/left,/ZhiXu
-      Tech. GamePad/hat/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnPlayerJumpInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 316ca2e4-9039-44eb-a572-b5bd633af6bd
-    m_ActionName: Player/Jump[/Keyboard/space,/ZhiXu Tech. GamePad/trigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnPlayerInteractInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 49dbe6db-0151-4cea-a3d3-6664fe69b2a3
-    m_ActionName: Player/Interact[/Keyboard/e,/ZhiXu Tech. GamePad/button5]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: OnPlayerLookInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 43196ccd-7d5e-488e-ab27-cdd64f65c503
-    m_ActionName: Player/Look[/ZhiXu Tech. GamePad/rz,/ZhiXu Tech. GamePad/z]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: SwapMode
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6d3a2f0e-f3de-41ce-89cc-cf90dfe47df8
-    m_ActionName: Cannon/Debug Swap Mode[/Keyboard/p]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 965603995}
-        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: SwapMode
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 8ef25135-b043-4c37-bc2d-826bbc05af6a
-    m_ActionName: Player/Debug Swap Mode[/Keyboard/o]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &965603995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965603987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8314cae2cbd6b4f868d40564706b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannon: {fileID: 0}
-  player: {fileID: 0}
-  input: {fileID: 0}
-  moveInput: {x: 0, y: 0}
-  currentMode: 0
 --- !u!1001 &980878885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3833,6 +3643,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 63abd331eaa3971469d036b9c1cb4191, type: 3}
   m_PrefabInstance: {fileID: 1290002883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1296395030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296395031}
+  m_Layer: 7
+  m_Name: Camera Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296395031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296395030}
+  m_LocalRotation: {x: -0.007368984, y: -0.000000059604634, z: 0.00000001513399, w: 0.9999729}
+  m_LocalPosition: {x: -0.040000886, y: 0.38275972, z: 0.21848215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4901133154405535254}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1325766510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4694332010547631873, guid: 2e62dde2b33575a43915633d22ec1418, type: 3}
+  m_PrefabInstance: {fileID: 176649406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1325766514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325766510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7402a71945cb41b43988a91b542d1607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345907426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,7 +6676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149062121303}
   m_LocalRotation: {x: -0, y: -0.67750794, z: -0, w: 0.7355155}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.309, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6876,6 +6734,7 @@ GameObject:
   - component: {fileID: 3469287836577063496}
   - component: {fileID: 1711813856005887618}
   - component: {fileID: 3469287836577063497}
+  - component: {fileID: 3469287836577063498}
   m_Layer: 7
   m_Name: Cannon
   m_TagString: Untagged
@@ -7246,8 +7105,31 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.70427936, y: 0.72343045, z: 1.6076916}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5342785, y: 1.9815516, z: 1.6076916}
+  m_Center: {x: 0.019589009, y: 0.62906146, z: 2.6443209e-11}
+--- !u!114 &3469287836577063498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149062121303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea3dc24f276f354ea498b3ff6950bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBarrel: {fileID: 4901133154405535254}
+  cameraPos: {fileID: 1296395031}
+  cannonPitch: 0
+  maxPitch: 20
+  minPitch: -40
+  pitchRate: 25
+  cannonYaw: 0
+  maxYaw: 45
+  minYaw: -45
+  yawRate: 25
+  startingYawOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &3469287837090629221
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7428,7 +7310,8 @@ Transform:
   m_LocalPosition: {x: 0.000000692904, y: 0.36050177, z: 0.4659008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1296395031}
   m_Father: {fileID: 543450652727930349}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0.844, y: 0, z: 0}
