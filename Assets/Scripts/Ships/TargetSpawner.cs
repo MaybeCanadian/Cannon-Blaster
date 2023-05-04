@@ -6,7 +6,9 @@ public class TargetSpawner : MonoBehaviour
 {
     public static TargetSpawner instance;
 
-    public List<SpawnPos> spawnPoints;
+    public List<Transform> spawnPoints;
+
+    private List<Transform> available;
 
     private void Awake()
     {
@@ -25,18 +27,34 @@ public class TargetSpawner : MonoBehaviour
 
         spawnPoints.Add(spawn);
     }
-    
-}
 
-[System.Serializable]
-public class SpawnPos
-{
-    public Transform pos;
-    public bool ocupied = false;
-
-    public SpawnPos(Transform pos)
+    public void AddSpawnPointsToAvailable()
     {
-        this.pos = pos;
-        ocupied = false;
+        foreach(Transform pos in spawnPoints)
+        {
+            available.Add(pos);
+        }
     }
+    public void SpawnTargetAtRandom()
+    {
+        if(available.Count <= 0) 
+        {
+            Debug.LogError("ERROR - No open spots to spawn");
+            return;
+        }
+
+        int index = Random.Range(0, available.Count);
+
+        Transform pos = available[index];
+
+        GameObject ship = ObjectPoolManager.GetObjectFromPool(PooledObjects.ShipTarget);
+
+        if(ship == null)
+        {
+            returnl
+        }
+
+        available.RemoveAt(index);
+    }
+    
 }
