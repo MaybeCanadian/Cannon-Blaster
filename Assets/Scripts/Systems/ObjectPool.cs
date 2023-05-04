@@ -160,5 +160,6 @@ public class Pool
 [System.Serializable]
 public enum PooledObjects
 {
-    CannonBall
+    CannonBall,
+    ShipTarget
 }
