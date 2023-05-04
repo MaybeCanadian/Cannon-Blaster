@@ -27,5 +27,9 @@ public class GameController : MonoBehaviour
         CannonManager.SetAllState(false);
 
         CannonManager.SetCannonState(CannonPositions.FirstLeft, true);
+
+        Transform targetSpawnPos = TargetSpawner.instance.GetRandomSpawnPos();
+
+        TargetSpawner.instance.SpawnTarget(targetSpawnPos.position, 3, 10);
     }
 }
