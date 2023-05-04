@@ -41,13 +41,22 @@ public class CannonController : MonoBehaviour
     public float fireDelay = 1.0f;
     private float fireTimer = 0.0f;
 
+    [Header("Positions")]
+    public CannonPositions position;
+
     private Vector2 moveInput = Vector2.zero;
     #endregion
 
+    #region Init Functions
+    private void Awake()
+    {
+        CannonManager.AddCannon(this, position);
+    }
     private void Start()
     {
         startingYawOffset = transform.localRotation.eulerAngles;
     }
+    #endregion
 
     #region Cannon Functions
     public void ChangePitch(float direction, float delta)

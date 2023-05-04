@@ -23,4 +23,10 @@ public class GameController : MonoBehaviour
     {
         ObjectPoolManager.OutSideInit();
     }
+    private void Start()
+    {
+        CannonManager.SetAllState(false);
+
+        CannonManager.SetCannonState(CannonPositions.FirstLeft, true);
+    }
 }
