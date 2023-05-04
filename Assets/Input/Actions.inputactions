@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Debug Swap Mode",
+                    "type": "Button",
+                    "id": "6d3a2f0e-f3de-41ce-89cc-cf90dfe47df8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -51,7 +60,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -62,7 +71,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -73,7 +82,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +93,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -106,7 +115,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -117,7 +126,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -128,7 +137,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -139,7 +148,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -161,7 +170,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -172,7 +181,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -183,7 +192,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -194,7 +203,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -216,7 +225,7 @@
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -227,7 +236,7 @@
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -238,7 +247,7 @@
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -249,7 +258,7 @@
                     "path": "<Joystick>/stick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Change Angle",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -260,7 +269,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -271,7 +280,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -282,7 +291,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/button10",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -293,7 +302,7 @@
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -304,7 +313,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Leave Cannon",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -315,7 +324,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/button2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Leave Cannon",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -326,7 +335,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Leave Cannon",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -337,8 +346,19 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Leave Cannon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "149b3da4-8c54-4f27-85e7-ca1675836cb7",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Debug Swap Mode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -379,10 +399,19 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "43196ccd-7d5e-488e-ab27-cdd64f65c503",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Debug Swap Mode",
+                    "type": "Button",
+                    "id": "8ef25135-b043-4c37-bc2d-826bbc05af6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -403,7 +432,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -414,7 +443,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -425,7 +454,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -436,7 +465,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -458,7 +487,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -469,7 +498,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -480,7 +509,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -491,7 +520,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -513,7 +542,7 @@
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -524,7 +553,7 @@
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -535,7 +564,7 @@
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -543,10 +572,10 @@
                 {
                     "name": "right",
                     "id": "ba147ebc-f9cd-43dc-8dfe-ffacd257c34b",
-                    "path": "<Joystick>/stick/down",
+                    "path": "<Joystick>/stick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -568,7 +597,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -579,7 +608,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -590,7 +619,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -601,7 +630,7 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/hat/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -612,7 +641,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -623,7 +652,7 @@
                     "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -634,7 +663,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -645,14 +674,80 @@
                     "path": "<HID::ZhiXu Tech. GamePad>/button5",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Mouse Delta",
-                    "id": "3e440fa9-057d-4dbd-a99d-079a31845c16",
+                    "name": "",
+                    "id": "4e9d64e9-62ee-4b15-9fd2-80e2b0f1b73e",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Debug Swap Mode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Mouse",
+                    "id": "5e5b08a1-2883-41c8-acce-bf2ef5beb84d",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4bab7d26-b574-45ba-8116-e7668b05d8bf",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c854715f-43e9-4384-8f38-d165ddf6167f",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "f75d503a-b674-4251-806e-6b73d9036a06",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "3e5cbda7-f901-439e-8834-a409a8e67c70",
+                    "path": "<Mouse>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right Stick",
+                    "id": "ef9f50fa-55b1-402b-b5c9-4cca63853f4f",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -663,50 +758,84 @@
                 },
                 {
                     "name": "up",
-                    "id": "813220ec-114e-4ed5-9db5-0791ce50514f",
-                    "path": "<Mouse>/delta/y",
+                    "id": "359445d2-e47b-49be-bbfd-94301a810c4e",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "17467ddd-cbf3-42bd-841c-56f85a43bf15",
-                    "path": "<Mouse>/delta/y",
+                    "id": "fe036612-4325-419d-9650-f6f8ae16c463",
+                    "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "84dd23f0-3fcc-43e4-873a-bea33c0aa23e",
-                    "path": "<Mouse>/delta/x",
+                    "id": "a350faa8-1597-4ac4-99d7-46987c1f7ecb",
+                    "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "be3fb24c-d3c6-4110-be68-ac77649d6b3d",
-                    "path": "<Mouse>/delta/x",
+                    "id": "adb04f9d-64e4-415e-933e-191db21c5a11",
+                    "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "7a65b22b-f7f6-443a-bc3a-4f2deebd56d8",
+            "actions": [],
+            "bindings": []
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard and Mouse",
+            "bindingGroup": "Keyboard and Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

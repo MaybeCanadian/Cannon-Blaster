@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float friction = 0.9f;
     public float zeroPoint = 0.01f;
 
+    private Vector2 moveInput = Vector2.zero;
+
     [Header("Pitch")]
     public float cameraPitch = 0.0f;
     public float pitchSpeed = 10.0f;
@@ -26,17 +29,24 @@ public class PlayerMovement : MonoBehaviour
     public float bodyRotation = 0.0f;
     public float rotateSpeed = 10.0f;
 
+    private Vector2 lookInput = Vector2.zero;
+
     [Header("Jumping")]
     public float jumpForce = 100.0f;
 
-    private Vector2 input = Vector2.zero;
-
+    #region Init Functions
     private void Awake()
+    {
+        Init();
+    }
+    private void Init()
     {
         charController = GetComponent<CharacterController>();
     }
+    #endregion
 
-    public void MoveCharacter(Vector2 direction, float delta)
+    #region Movement
+    public void MoveCharacter(float delta)
     {
         if (charController == null)
         {
@@ -45,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
         }
         //movement
 
-        velocity += transform.forward * direction.y * moveSpeed * delta;
-        velocity += transform.right * direction.x * moveSpeed * delta;
+        velocity += transform.forward * moveInput.y * moveSpeed * delta;
+        velocity += transform.right * moveInput.x * moveSpeed * delta;
 
         charController.Move(velocity * delta);
 
@@ -73,11 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(input);
     }
-    public void RotateView(Vector2 direction, float delta)
+    public void RotateView(float delta)
     {
-        cameraPitch -= direction.y * delta * pitchSpeed;
+        cameraPitch -= lookInput.y * delta * pitchSpeed;
 
-        bodyRotation += direction.x * delta * rotateSpeed;
+        bodyRotation += lookInput.x * delta * rotateSpeed;
 
         cameraPitch = Mathf.Clamp(cameraPitch, minPitch, maxPitch);
 
@@ -94,35 +104,29 @@ public class PlayerMovement : MonoBehaviour
             velocity.y += jumpForce;
         }
     }
+    #endregion
 
-    #region Debug Control
+    #region Update
     private void FixedUpdate()
     {
-        MoveCharacter(input, Time.fixedDeltaTime);
-
-        DetermineMouse(Time.fixedDeltaTime);
+        MoveCharacter(Time.fixedDeltaTime);
     }
     private void LateUpdate()
     {
-        DetermineMouse(Time.smoothDeltaTime);
+        RotateView(Time.smoothDeltaTime);
     }
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-    private void DetermineMouse(float delta)
-    {
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue() * Time.smoothDeltaTime;
+    #endregion
 
-        RotateView(mouseDelta, delta);
-    }
-    public void OnMoveInput(InputAction.CallbackContext context)
+    #region Inputs
+    public void SetMoveInput(Vector2 input)
     {
-        input = context.ReadValue<Vector2>().normalized;
+        moveInput = input;
     }
-    public void OnJumpInput(InputAction.CallbackContext context)
+    public void SetLookInput(Vector2 input)
     {
-        Jump();
+        lookInput = input;
+
+        //Debug.Log(lookInput);
     }
     #endregion
 }
