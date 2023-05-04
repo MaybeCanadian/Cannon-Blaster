@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 316735022166544801}
   m_Layer: 7
-  m_Name: Camera Pos
+  m_Name: Barrel Cam
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622672137363246561}
-  m_LocalRotation: {x: -0, y: -0.67750794, z: -0, w: 0.7355155}
+  m_LocalRotation: {x: 0, y: -0.67750525, z: 0, w: 0.7355179}
   m_LocalPosition: {x: -0.309, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,6 +66,7 @@ Transform:
   - {fileID: 4639013768445539488}
   - {fileID: 9199765707231858590}
   - {fileID: 8036539287975003333}
+  - {fileID: 7233713411095944625}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -85.298, z: 0}
@@ -153,7 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBarrel: {fileID: 4639013768445539488}
-  cameraPos: {fileID: 316735022166544801}
+  firePoint: {fileID: 8036785377049331092}
+  barrelBase: {fileID: 2414369351877385203}
+  barrelCam: {fileID: 316735022166544801}
+  railingCam: {fileID: 7233713411095944625}
   cannonPitch: 0
   maxPitch: 20
   minPitch: -40
@@ -162,7 +166,9 @@ MonoBehaviour:
   maxYaw: 45
   minYaw: -45
   yawRate: 25
-  startingYawOffset: {x: 0, y: 0, z: 0}
+  projectile: 0
+  fireForce: 20
+  fireDelay: 1
 --- !u!1 &3743092536541180433
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +200,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 316735022166544801}
+  - {fileID: 8036785377049331092}
+  - {fileID: 2414369351877385203}
   m_Father: {fileID: 283724225810896731}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0.844, y: 0, z: 0}
@@ -330,6 +338,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5821681696648781533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8036785377049331092}
+  m_Layer: 7
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8036785377049331092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821681696648781533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.023, y: 0.116, z: 1.267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4639013768445539488}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6300866084247908947
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,3 +452,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8787960406823566591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2414369351877385203}
+  m_Layer: 7
+  m_Name: Barrel Base
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2414369351877385203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787960406823566591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.023, y: 0.048, z: -1.019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4639013768445539488}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9169923545784452184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7233713411095944625}
+  m_Layer: 7
+  m_Name: Railing Cam
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7233713411095944625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169923545784452184}
+  m_LocalRotation: {x: 0.08315825, y: 0.00004592537, z: 0.006234939, w: 0.9965168}
+  m_LocalPosition: {x: 0.12000007, y: 1.8030002, z: -0.12299991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 283724225810896731}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 9.54, y: 0.066, z: 0.722}

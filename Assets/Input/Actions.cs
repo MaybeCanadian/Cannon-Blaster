@@ -28,7 +28,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
             ""id"": ""e8c3b2e2-31b1-4750-b3f1-415965ce3ea8"",
             ""actions"": [
                 {
-                    ""name"": ""Change Angle"",
+                    ""name"": ""MoveCannon"",
                     ""type"": ""Value"",
                     ""id"": ""b6feed4e-ee27-4be7-9bf1-a93658176989"",
                     ""expectedControlType"": ""Vector2"",
@@ -62,6 +62,15 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeAngle"",
+                    ""type"": ""Button"",
+                    ""id"": ""0bd49c20-25b5-48bb-ba1c-6fed01b6461e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -72,7 +81,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -83,7 +92,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -94,7 +103,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -105,7 +114,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -116,7 +125,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -127,7 +136,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -138,7 +147,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -149,7 +158,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -160,7 +169,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -171,7 +180,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -182,7 +191,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -193,7 +202,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -204,7 +213,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -215,7 +224,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -226,7 +235,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -237,7 +246,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -248,7 +257,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -259,7 +268,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -270,7 +279,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -281,7 +290,7 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""Change Angle"",
+                    ""action"": ""MoveCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -381,6 +390,28 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Debug Swap Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f1f09f5-f3dc-4d93-a7b3-772f568edd0f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""ChangeAngle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42d5c7f1-d8d6-4aa8-818d-8bafbf3c02dc"",
+                    ""path"": ""<HID::ZhiXu Tech. GamePad>/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ChangeAngle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -863,10 +894,11 @@ public partial class @Actions : IInputActionCollection2, IDisposable
 }");
         // Cannon
         m_Cannon = asset.FindActionMap("Cannon", throwIfNotFound: true);
-        m_Cannon_ChangeAngle = m_Cannon.FindAction("Change Angle", throwIfNotFound: true);
+        m_Cannon_MoveCannon = m_Cannon.FindAction("MoveCannon", throwIfNotFound: true);
         m_Cannon_Fire = m_Cannon.FindAction("Fire", throwIfNotFound: true);
         m_Cannon_LeaveCannon = m_Cannon.FindAction("Leave Cannon", throwIfNotFound: true);
         m_Cannon_DebugSwapMode = m_Cannon.FindAction("Debug Swap Mode", throwIfNotFound: true);
+        m_Cannon_ChangeAngle = m_Cannon.FindAction("ChangeAngle", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
@@ -935,18 +967,20 @@ public partial class @Actions : IInputActionCollection2, IDisposable
     // Cannon
     private readonly InputActionMap m_Cannon;
     private ICannonActions m_CannonActionsCallbackInterface;
-    private readonly InputAction m_Cannon_ChangeAngle;
+    private readonly InputAction m_Cannon_MoveCannon;
     private readonly InputAction m_Cannon_Fire;
     private readonly InputAction m_Cannon_LeaveCannon;
     private readonly InputAction m_Cannon_DebugSwapMode;
+    private readonly InputAction m_Cannon_ChangeAngle;
     public struct CannonActions
     {
         private @Actions m_Wrapper;
         public CannonActions(@Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ChangeAngle => m_Wrapper.m_Cannon_ChangeAngle;
+        public InputAction @MoveCannon => m_Wrapper.m_Cannon_MoveCannon;
         public InputAction @Fire => m_Wrapper.m_Cannon_Fire;
         public InputAction @LeaveCannon => m_Wrapper.m_Cannon_LeaveCannon;
         public InputAction @DebugSwapMode => m_Wrapper.m_Cannon_DebugSwapMode;
+        public InputAction @ChangeAngle => m_Wrapper.m_Cannon_ChangeAngle;
         public InputActionMap Get() { return m_Wrapper.m_Cannon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -956,9 +990,9 @@ public partial class @Actions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_CannonActionsCallbackInterface != null)
             {
-                @ChangeAngle.started -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
-                @ChangeAngle.performed -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
-                @ChangeAngle.canceled -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
+                @MoveCannon.started -= m_Wrapper.m_CannonActionsCallbackInterface.OnMoveCannon;
+                @MoveCannon.performed -= m_Wrapper.m_CannonActionsCallbackInterface.OnMoveCannon;
+                @MoveCannon.canceled -= m_Wrapper.m_CannonActionsCallbackInterface.OnMoveCannon;
                 @Fire.started -= m_Wrapper.m_CannonActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_CannonActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_CannonActionsCallbackInterface.OnFire;
@@ -968,13 +1002,16 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                 @DebugSwapMode.started -= m_Wrapper.m_CannonActionsCallbackInterface.OnDebugSwapMode;
                 @DebugSwapMode.performed -= m_Wrapper.m_CannonActionsCallbackInterface.OnDebugSwapMode;
                 @DebugSwapMode.canceled -= m_Wrapper.m_CannonActionsCallbackInterface.OnDebugSwapMode;
+                @ChangeAngle.started -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
+                @ChangeAngle.performed -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
+                @ChangeAngle.canceled -= m_Wrapper.m_CannonActionsCallbackInterface.OnChangeAngle;
             }
             m_Wrapper.m_CannonActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ChangeAngle.started += instance.OnChangeAngle;
-                @ChangeAngle.performed += instance.OnChangeAngle;
-                @ChangeAngle.canceled += instance.OnChangeAngle;
+                @MoveCannon.started += instance.OnMoveCannon;
+                @MoveCannon.performed += instance.OnMoveCannon;
+                @MoveCannon.canceled += instance.OnMoveCannon;
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
@@ -984,6 +1021,9 @@ public partial class @Actions : IInputActionCollection2, IDisposable
                 @DebugSwapMode.started += instance.OnDebugSwapMode;
                 @DebugSwapMode.performed += instance.OnDebugSwapMode;
                 @DebugSwapMode.canceled += instance.OnDebugSwapMode;
+                @ChangeAngle.started += instance.OnChangeAngle;
+                @ChangeAngle.performed += instance.OnChangeAngle;
+                @ChangeAngle.canceled += instance.OnChangeAngle;
             }
         }
     }
@@ -1098,10 +1138,11 @@ public partial class @Actions : IInputActionCollection2, IDisposable
     }
     public interface ICannonActions
     {
-        void OnChangeAngle(InputAction.CallbackContext context);
+        void OnMoveCannon(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnLeaveCannon(InputAction.CallbackContext context);
         void OnDebugSwapMode(InputAction.CallbackContext context);
+        void OnChangeAngle(InputAction.CallbackContext context);
     }
     public interface IPlayerActions
     {

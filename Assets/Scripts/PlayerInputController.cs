@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class PlayerInputController : MonoBehaviour
     public LayerMask cannonLayer;
     public float raycastCheckDist = 5.0f;
     public GameObject currentObject = null;
+
+    [Header("Camera")]
+    public CameraPos currentCameraType = CameraPos.Barrel;
 
     [Header("Inputs")]
     public PlayerControlMode currentMode = PlayerControlMode.Player;
@@ -92,6 +97,22 @@ public class PlayerInputController : MonoBehaviour
         cannon = null;
 
         SwitchToPlayer();
+    }
+    public void OnCannonAngleSwitchInput(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+
+        if (!CheckCannonMode())
+        {
+            return;
+        }
+
+        currentCameraType = (currentCameraType == CameraPos.Barrel) ? CameraPos.Railing : CameraPos.Barrel;
+
+        CameraController.instance.AttachToObject(cannon.GetCameraPos(currentCameraType));
     }
     #endregion
 
@@ -218,7 +239,7 @@ public class PlayerInputController : MonoBehaviour
 
         currentMode = PlayerControlMode.Cannon;
 
-        CameraController.instance.AttachToObject(cannon.cameraPos);
+        CameraController.instance.AttachToObject(cannon.GetCameraPos(currentCameraType));
 
         input.SwitchCurrentActionMap("Cannon");
 

@@ -7,7 +7,12 @@ public class CannonController : MonoBehaviour
     #region Member Variables
     [Header("Cannon Parts")]
     public Transform cannonBarrel;
-    public Transform cameraPos;
+    public Transform firePoint;
+    public Transform barrelBase;
+
+    [Header("Cameras")]
+    public Transform barrelCam;
+    public Transform railingCam;
 
     [Header("Pitch")]
     [SerializeField, Tooltip("The current pitch of the cannon")]
@@ -28,11 +33,16 @@ public class CannonController : MonoBehaviour
     private float minYaw = -45.0f;
     [SerializeField, Tooltip("The rate at which yaw changes when input is pressed.")]
     private float yawRate = 1.0f;
-    #endregion
+    private Vector3 startingYawOffset;
 
-    public Vector3 startingYawOffset;
+    [Header("Firing")]
+    public PooledObjects projectile;
+    public float fireForce = 100.0f;
+    public float fireDelay = 1.0f;
+    private float fireTimer = 0.0f;
+
     private Vector2 moveInput = Vector2.zero;
-    public GameObject cannonBallPrefab = null;
+    #endregion
 
     private void Start()
     {
@@ -79,13 +89,44 @@ public class CannonController : MonoBehaviour
     #region Fire
     public void FireCannon()
     {
-        Debug.Log("Fire");
-    }
-    private GameObject GetCannonBall()
-    {
-        GameObject ball = Instantiate(cannonBallPrefab);
+        if(fireTimer < fireDelay)
+        {
+            return;
+        }
 
-        return ball;
+        fireTimer = 0.0f;
+
+        GameObject ball = ObjectPoolManager.GetObjectFromPool(projectile);
+
+        if (ball == null)
+        {
+            Debug.LogError("ERROR - Cannon ball to fire was null.");
+            return;
+        }
+
+        ball.SetActive(true);
+
+        Rigidbody ballRB = ball.gameObject.GetComponent<Rigidbody>();
+
+        if(ballRB == null)
+        {
+            ObjectPoolManager.ReturnObjectToPool(ball, projectile);
+            Debug.LogError("ERROR - Ball has no rigidbody.");
+            return;
+        }
+
+        Vector3 direction = (firePoint.position - barrelBase.position).normalized;
+
+        ball.transform.position = firePoint.position;
+
+        ballRB.AddForce(direction * fireForce, ForceMode.Impulse);
+    }
+    private void FireTimerTick(float delta)
+    {
+        if(fireTimer < fireDelay)
+        {
+            fireTimer += delta;
+        }
     }
     #endregion
 
@@ -93,6 +134,18 @@ public class CannonController : MonoBehaviour
     public void SetMoveInput(Vector2 input)
     {
         moveInput = input;
+    }
+    public Transform GetCameraPos(CameraPos posType)
+    {
+        switch(posType)
+        {
+            case CameraPos.Barrel:
+                return barrelCam;
+            case CameraPos.Railing:
+                return railingCam;
+        }
+
+        return null;
     }
     #endregion
 
@@ -102,7 +155,14 @@ public class CannonController : MonoBehaviour
         ChangePitch(moveInput.y, Time.deltaTime);
         ChangeYaw(moveInput.x, Time.deltaTime);
 
-
+        FireTimerTick(Time.deltaTime);
     }
     #endregion
+}
+
+[System.Serializable]
+public enum CameraPos
+{
+    Barrel,
+    Railing
 }
