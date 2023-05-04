@@ -38,11 +38,22 @@ public class CannonBallBehaviour : MonoBehaviour
             return;
         }
 
-        WaterDeathPlane water = other.GetComponent<WaterDeathPlane>();
+        WaterSplashPlane splashPlane = other.GetComponent<WaterSplashPlane>();
 
-        if(water != null)
+        if (splashPlane != null)
         {
             Debug.Log("Sploosh");
+
+            //play sound effect and other stuff here
+
+            return;
+        }
+
+        WaterDeathPlane deathPlane = other.GetComponent<WaterDeathPlane>();
+
+        if(deathPlane != null)
+        {
+            Debug.Log("Removed");
 
             RemoveBall();
             
@@ -52,6 +63,15 @@ public class CannonBallBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        TargetBehaviour target = collision.gameObject.GetComponent<TargetBehaviour>();
+
+        if (target != null)
+        {
+            Debug.Log("Hit!");
+
+            RemoveBall();
+
+            return;
+        }
     }
 }

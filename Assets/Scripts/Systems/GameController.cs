@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
             Init();
         }
     }
-
     private void Init()
     {
         ObjectPoolManager.OutSideInit();
