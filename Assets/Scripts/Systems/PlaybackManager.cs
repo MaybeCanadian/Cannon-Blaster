@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -54,7 +55,7 @@ public class PlaybackManager : MonoBehaviour
     #endregion
 
     #region Playback
-    public void PlaySound2D(AudioClip clip, PLaybackChannelList channel, float volume)
+    public void PlaySound2D(AudioClip clip, PLaybackChannelList channel, float volume, bool loop = false)
     {
         if(!channelDict.ContainsKey(channel))
         {
@@ -62,9 +63,18 @@ public class PlaybackManager : MonoBehaviour
             return;
         }
 
-        AudioSource source = channelDict[channel]
+        AudioSource source = channelDict[channel].GetAudioSource();
+
+        source.clip = clip;
+        source.loop = loop;
+
+        source.spatialBlend = 0.0f;
+
+        source.volume = volume;
+
+        source.Play();
     }
-    public void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos)
+    public void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos, bool loop = false)
     {
         if (!channelDict.ContainsKey(channel))
         {
@@ -72,7 +82,18 @@ public class PlaybackManager : MonoBehaviour
             return;
         }
 
-        AudioSource source;
+        AudioSource source = channelDict[channel].GetAudioSource();
+
+        source.clip = clip;
+        source.loop = loop;
+
+        source.spatialBlend = 1.0f;
+
+        source.volume = volume;
+
+        source.transform.position = pos;
+
+        source.Play();
     }
     #endregion
 }
@@ -140,7 +161,18 @@ public class PlaybackChannel
     {
         if(useList.Count <= 0)
         {
-            CreateNewSource();
+            CheckSourcesForDone();
+
+            if (useList.Count <= 0)
+            {
+                CreateNewSource();
+            }
+        }
+
+        if(useList.Count <= 0)
+        {
+            Debug.Log("ERROR - Could not generate any sources.");
+            return null;
         }
 
         AudioSource source = useList.Dequeue();
@@ -150,4 +182,26 @@ public class PlaybackChannel
         return source;
     }
     #endregion
+
+    private void CheckSourcesForDone()
+    {
+        List<AudioSource> doneSources = new List<AudioSource>();
+
+        foreach(AudioSource source in activeSources)
+        {
+            if (source.isPlaying == false)
+            {
+                doneSources.Add(source);
+            }
+        }
+
+        foreach(AudioSource source in doneSources)
+        {
+            source.Stop();
+            source.enabled = false;
+
+            activeSources.Remove(source);
+            useList.Enqueue(source);
+        }
+    }
 }
