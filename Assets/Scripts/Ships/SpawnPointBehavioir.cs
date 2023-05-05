@@ -6,6 +6,6 @@ public class SpawnPointBehavioir : MonoBehaviour
 {
     private void Awake()
     {
-        
+        TargetSpawner.AddSpawnPoint(transform);
     }
 }

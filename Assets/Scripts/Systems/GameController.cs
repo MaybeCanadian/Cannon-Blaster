@@ -24,12 +24,15 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        CannonManager.SetAllState(false);
+        CannonManager.SetAllState(true);
 
         CannonManager.SetCannonState(CannonPositions.FirstLeft, true);
 
-        Transform targetSpawnPos = TargetSpawner.instance.GetRandomSpawnPos();
+        TargetSpawner.AddSpawnPointsToAvailable();
 
-        TargetSpawner.instance.SpawnTarget(targetSpawnPos.position, 3, 10);
+        for(int i = 0; i < 3; i++)
+        {
+            TargetSpawner.SpawnTargetAtRandom(3, 1, 5, true, 10, 1);
+        }
     }
 }

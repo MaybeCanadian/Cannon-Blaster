@@ -50,7 +50,7 @@ public class MovingShip : MonoBehaviour
 
         if (timer < 0.0f)
         {
-            timer = 1.0f;
+            dir = 1;
         }
 
     }
