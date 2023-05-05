@@ -18,6 +18,7 @@ public static class ScoreController
     }
     public static void AddScore(int value)
     {
+        //Debug.Log("test");
         score += value;
 
         OnScoreChanged?.Invoke(score);
