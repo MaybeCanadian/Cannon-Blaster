@@ -11,21 +11,11 @@ public class PlaybackManager : MonoBehaviour
     public AudioMixer mixer;
 
     #region Init Functions
-    public void SetUpPlaybackManager(int startAmount)
+    public void SetUpPlaybackManager(int startAmount, AudioMixer mixer)
     {
-        LoadMixer();
+        this.mixer = mixer;
 
         SetUpChannels(startAmount);
-    }
-    private void LoadMixer()
-    {
-        mixer = Resources.Load<AudioMixer>("Audio/Mixer");
-
-        if(mixer == null)
-        {
-            Debug.LogError("ERROR - Could not load the mixer from resources.");
-            return;
-        }
     }
     private void SetUpChannels(int startAmount)
     {
