@@ -177,5 +177,6 @@ public class Pool
 public enum PooledObjects
 {
     CannonBall,
-    ShipTarget
+    ShipTarget,
+    SplashEffect
 }

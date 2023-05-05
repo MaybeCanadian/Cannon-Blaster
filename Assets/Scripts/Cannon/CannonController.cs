@@ -41,6 +41,8 @@ public class CannonController : MonoBehaviour
     public float fireDelay = 1.0f;
     private float fireTimer = 0.0f;
 
+    public ParticleSystem fireEffect;
+
     [Header("Recoil")]
     private bool recoiling = false;
     public float recoilRate = 1.0f;
@@ -143,6 +145,8 @@ public class CannonController : MonoBehaviour
         recoilDir = 1;
 
         ClipList list = ClipDatatBase.GetList(fireSound);
+
+        fireEffect.Play();
 
         if (list != null)
         {

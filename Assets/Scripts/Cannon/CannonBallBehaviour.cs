@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CannonBallBehaviour : MonoBehaviour
 {
@@ -33,6 +34,64 @@ public class CannonBallBehaviour : MonoBehaviour
 
         ObjectPoolManager.ReturnObjectToPool(gameObject, objType);
     }
+    private void HitWater()
+    {
+        ClipList list = ClipDatatBase.GetList(waterSounds);
+
+        if (list != null)
+        {
+            AudioClip clip = list.GetClip(true);
+
+            if (clip != null)
+            {
+                AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position);
+            }
+        }
+
+        GameObject splashEffect = ObjectPoolManager.GetObjectFromPool(PooledObjects.SplashEffect);
+
+        if (splashEffect == null)
+        {
+            Debug.LogError("ERROR - Splash Effect from pool was null.");
+            return;
+        }
+
+        splashEffect.SetActive(true);
+        splashEffect.transform.position = transform.position;
+
+        SplashEffect effect = splashEffect.GetComponent<SplashEffect>();
+
+        if(effect == null)
+        {
+            ObjectPoolManager.ReturnObjectToPool(splashEffect, PooledObjects.SplashEffect);
+            Debug.LogError("ERROR - Splash effect has no behabiour script.");
+            return;
+        }
+
+        effect.PlayEffect();
+    }
+    private void HitDeathPlane()
+    {
+        RemoveBall();
+    }
+    private void HitBoat(TargetBehaviour target)
+    {
+        ClipList list = ClipDatatBase.GetList(boatHitSounds);
+
+        if (list != null)
+        {
+            AudioClip clip = list.GetClip(true);
+
+            if (clip != null)
+            {
+                AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position, 2.0f);
+            }
+        }
+
+        target.takeDamage(1);
+
+        RemoveBall();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,9 +104,7 @@ public class CannonBallBehaviour : MonoBehaviour
 
         if (splashPlane != null)
         {
-            Debug.Log("Sploosh");
-
-            //play sound effect and other stuff here
+            HitWater();
 
             return;
         }
@@ -56,19 +113,7 @@ public class CannonBallBehaviour : MonoBehaviour
 
         if(deathPlane != null)
         {
-            ClipList list = ClipDatatBase.GetList(waterSounds);
-
-            if(list != null)
-            {
-                AudioClip clip = list.GetClip(true);
-
-                if(clip != null)
-                {
-                    AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position);
-                }
-            }
-
-            RemoveBall();
+            HitDeathPlane();
             
             return;
         }
@@ -80,21 +125,7 @@ public class CannonBallBehaviour : MonoBehaviour
 
         if (target != null)
         {
-            ClipList list = ClipDatatBase.GetList(boatHitSounds);
-
-            if (list != null)
-            {
-                AudioClip clip = list.GetClip(true);
-
-                if (clip != null)
-                {
-                    AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position, 2.0f);
-                }
-            }
-
-            target.takeDamage(1);
-
-            RemoveBall();
+            HitBoat(target);
 
             return;
         }

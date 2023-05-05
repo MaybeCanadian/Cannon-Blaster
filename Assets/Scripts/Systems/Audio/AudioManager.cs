@@ -25,7 +25,7 @@ public static class AudioManager
     }
     private static void Init()
     {
-        Debug.Log("Test");
+        //Debug.Log("Test");
 
         LoadMixer();
 
