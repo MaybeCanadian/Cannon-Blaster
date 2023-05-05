@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
         for(int i = 0; i < 3; i++)
         {
-            TargetSpawner.SpawnTargetAtRandom(3, 1, 5, true, 10, 1);
+            TargetSpawner.SpawnTargetAtRandom(3, 0, 5, true, 10, 5);
         }
     }
 }

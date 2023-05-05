@@ -51,11 +51,15 @@ public class TargetBehaviour : MonoBehaviour
 
         OnTargetHit?.Invoke(hitValue);
 
+        ScoreController.AddScore(hitValue);
+
         UpdateHealthBar();
     }
     private void Die()
     {
         OnTargetKill?.Invoke(killValue);
+
+        ScoreController.AddScore(killValue);
 
         ObjectPoolManager.ReturnObjectToPool(gameObject, PooledObjects.ShipTarget);
     }

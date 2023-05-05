@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Solid
   - Cannon
-  - 
-  - 
-  - 
+  - PlayerShip
+  - Player
+  - Target
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 896438339
     locked: 0
