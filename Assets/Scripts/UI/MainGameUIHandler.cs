@@ -7,6 +7,7 @@ public class MainGameUIHandler : MonoBehaviour
     public GameObject GameUI;
     public GameObject PauseUI;
     public GameObject CannonUI;
+    public GameObject PlayerUI;
 
     private void OnEnable()
     {
@@ -36,24 +37,29 @@ public class MainGameUIHandler : MonoBehaviour
         GameUI.SetActive(true);
         PauseUI.SetActive(false);
         CannonUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
 
     private void Resume()
     {
         GameUI.SetActive(true);
         PauseUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
     private void Pause()
     {
         GameUI.SetActive(false);
         PauseUI.SetActive(true);
+        PlayerUI.SetActive(false);
     }
     private void SwitchToPlayer()
     {
         CannonUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
     private void SwitchToCannon()
     {
         CannonUI.SetActive(true);
+        PlayerUI.SetActive(false);
     }
 }
