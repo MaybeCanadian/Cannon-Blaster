@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 163143206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnEffectDownPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &163143206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,7 +1313,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 826369644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnEffectsUpPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &826369644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,7 +1447,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 870448704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnMasterDownPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &870448704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,7 +1986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1317040637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnMusicDownPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1317040637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3023,7 +3071,7 @@ GameObject:
   - component: {fileID: 1882641879}
   - component: {fileID: 1882641878}
   m_Layer: 5
-  m_Name: Volume
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3309,7 +3357,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1923830538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnMusicUpPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1923830538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3431,7 +3491,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1925060887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742106565}
+        m_TargetAssemblyTypeName: OptionsUIController, Assembly-CSharp
+        m_MethodName: OnMasterUpPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1925060887
 MonoBehaviour:
   m_ObjectHideFlags: 0

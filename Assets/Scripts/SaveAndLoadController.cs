@@ -6,6 +6,8 @@ public static class SaveAndLoadController
 {
     public static int LoadSavedSetting(SettingNames setting)
     {
+        Debug.Log("loaded");
+
         return PlayerPrefs.GetInt(setting.ToString(), 5);
     }
     public static void SaveLoadedSetting(SettingNames setting, int value)
