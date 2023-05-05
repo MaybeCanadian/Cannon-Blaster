@@ -31,4 +31,15 @@ public static class AudioManager
         manager.SetUpPlaybackManager(startAmount);
     }
     #endregion
+
+    #region Playback
+    public static void PlaySounce2D(AudioClip clip, PLaybackChannelList channel, float volume)
+    {
+        
+    }
+    public static void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos)
+    {
+
+    }
+    #endregion
 }

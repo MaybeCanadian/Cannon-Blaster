@@ -8,8 +8,8 @@ public class PlaybackManager : MonoBehaviour
 {
     public Dictionary<PLaybackChannelList, PlaybackChannel> channelDict = null;
     public AudioMixer mixer;
-    int startingAmount;
 
+    #region Init Functions
     public void SetUpPlaybackManager(int startAmount)
     {
         LoadMixer();
@@ -51,6 +51,30 @@ public class PlaybackManager : MonoBehaviour
 
         return groups[0];
     }
+    #endregion
+
+    #region Playback
+    public void PlaySound2D(AudioClip clip, PLaybackChannelList channel, float volume)
+    {
+        if(!channelDict.ContainsKey(channel))
+        {
+            Debug.LogError("ERROR - Channel Dict does not have a chnanel for given name.");
+            return;
+        }
+
+        AudioSource source = channelDict[channel]
+    }
+    public void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos)
+    {
+        if (!channelDict.ContainsKey(channel))
+        {
+            Debug.LogError("ERROR - Channel Dict does not have a chnanel for given name.");
+            return;
+        }
+
+        AudioSource source;
+    }
+    #endregion
 }
 
 [System.Serializable]
@@ -66,10 +90,12 @@ public class PlaybackChannel
 {
     private List<AudioSource> sourceList = new List<AudioSource>();
     private Queue<AudioSource> useList = new Queue<AudioSource>();
+    private List<AudioSource> activeSources = new List<AudioSource>();
 
     private GameObject channelParent = null;
     private AudioMixerGroup mixerGroup;
 
+    #region Init Functions
     public PlaybackChannel(AudioMixerGroup group, Transform parent, int startingAmount)
     {
         mixerGroup = group;
@@ -92,6 +118,9 @@ public class PlaybackChannel
             CreateNewSource();
         }
     }
+    #endregion
+
+    #region Source Control
     private void CreateNewSource()
     {
         GameObject newSource = new GameObject();
@@ -107,4 +136,18 @@ public class PlaybackChannel
         sourceList.Add(source);
         useList.Enqueue(source);
     }
+    public AudioSource GetAudioSource()
+    {
+        if(useList.Count <= 0)
+        {
+            CreateNewSource();
+        }
+
+        AudioSource source = useList.Dequeue();
+
+        activeSources.Add(source);
+
+        return source;
+    }
+    #endregion
 }
