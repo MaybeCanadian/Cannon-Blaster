@@ -55,6 +55,14 @@ public class PlaybackManager : MonoBehaviour
 
         AudioSource source = channelDict[channel].GetAudioSource();
 
+        if(source == null)
+        {
+            Debug.LogError("ERROR - Source was null.");
+            return;
+        }
+
+        source.enabled = true;
+
         source.clip = clip;
         source.loop = loop;
 
@@ -63,6 +71,9 @@ public class PlaybackManager : MonoBehaviour
         source.volume = volume;
 
         source.Play();
+
+
+        Debug.Log("playing 2D " + clip.name);
     }
     public void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos, bool loop = false)
     {
@@ -74,6 +85,14 @@ public class PlaybackManager : MonoBehaviour
 
         AudioSource source = channelDict[channel].GetAudioSource();
 
+        if (source == null)
+        {
+            Debug.LogError("ERROR - Source was null.");
+            return;
+        }
+
+        source.enabled = true;
+
         source.clip = clip;
         source.loop = loop;
 
@@ -84,6 +103,19 @@ public class PlaybackManager : MonoBehaviour
         source.transform.position = pos;
 
         source.Play();
+
+        Debug.Log("playing 3D " + clip.name);
+    }
+
+    public void StopChannelAll(PLaybackChannelList channel)
+    {
+        if(!channelDict.ContainsKey(channel))
+        {
+            Debug.LogError("ERROR - Channel Dict does not have a value for given name.");
+            return;
+        }
+
+        channelDict[channel].StopAll();
     }
     #endregion
 }
@@ -170,6 +202,21 @@ public class PlaybackChannel
         activeSources.Add(source);
 
         return source;
+    }
+    public void StopAll()
+    {
+        foreach(AudioSource source in activeSources)
+        {
+            if(source.isPlaying)
+            {
+                source.Stop();
+            }
+
+            source.enabled = false;
+            useList.Enqueue(source);
+        }
+
+        activeSources.Clear();
     }
     #endregion
 

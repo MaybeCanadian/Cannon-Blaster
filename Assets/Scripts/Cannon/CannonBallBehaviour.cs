@@ -8,6 +8,9 @@ public class CannonBallBehaviour : MonoBehaviour
     public bool active = false;
     public PooledObjects objType = PooledObjects.CannonBall;
 
+    public ClipListNames waterSounds = ClipListNames.WaterSplash;
+    public ClipListNames boatHitSounds = ClipListNames.BoatHit;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,7 +56,17 @@ public class CannonBallBehaviour : MonoBehaviour
 
         if(deathPlane != null)
         {
-            Debug.Log("Removed");
+            ClipList list = ClipDatatBase.GetList(waterSounds);
+
+            if(list != null)
+            {
+                AudioClip clip = list.GetClip(true);
+
+                if(clip != null)
+                {
+                    AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position);
+                }
+            }
 
             RemoveBall();
             
@@ -67,7 +80,17 @@ public class CannonBallBehaviour : MonoBehaviour
 
         if (target != null)
         {
-            Debug.Log("Hit!");
+            ClipList list = ClipDatatBase.GetList(boatHitSounds);
+
+            if (list != null)
+            {
+                AudioClip clip = list.GetClip(true);
+
+                if (clip != null)
+                {
+                    AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, transform.position, 2.0f);
+                }
+            }
 
             target.takeDamage(1);
 

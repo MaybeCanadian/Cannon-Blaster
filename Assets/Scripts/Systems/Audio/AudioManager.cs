@@ -58,13 +58,35 @@ public static class AudioManager
     #endregion
 
     #region Playback
-    public static void PlaySounce2D(AudioClip clip, PLaybackChannelList channel, float volume)
+    public static void PlaySound2D(AudioClip clip, PLaybackChannelList channel, float volume = 1.0f, bool loop = false)
     {
-        
-    }
-    public static void PlaySound3D(AudioClip clip, PLaybackChannelList channel, float volume, Vector3 pos)
-    {
+        if (clip == null)
+        {
+            Debug.LogError("ERROR - Cannot play a null clip.");
+            return;
+        }
 
+        CheckInit();
+
+        manager.PlaySound2D(clip, channel, volume, loop);
+    }
+    public static void PlaySound3D(AudioClip clip, PLaybackChannelList channel, Vector3 pos, float volume = 1.0f, bool loop = false)
+    {
+        if (clip == null)
+        {
+            Debug.LogError("ERROR - Cannot play a null clip.");
+            return;
+        }
+
+        CheckInit();
+
+        manager.PlaySound3D(clip, channel, volume, pos, loop);
+    }
+    public static void StopAllChannel(PLaybackChannelList channel)
+    {
+        CheckInit();
+
+        manager.StopChannelAll(channel);
     }
     #endregion
 

@@ -26,6 +26,12 @@ public class GameController : MonoBehaviour
     {
         AudioManager.OutSideInit();
 
+        AudioManager.StopAllChannel(PLaybackChannelList.Music);
+
+        AudioClip track = ClipDatatBase.GetTrack(TrackList.Skirmish);
+
+        AudioManager.PlaySound2D(track, PLaybackChannelList.Music, 1.0f, true);
+
         CannonManager.SetAllState(true);
 
         CannonManager.SetCannonState(CannonPositions.FirstLeft, true);

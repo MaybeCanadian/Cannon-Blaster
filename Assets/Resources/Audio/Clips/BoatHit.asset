@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f664b6f76a7d354f846c8a0ce600f26, type: 3}
+  m_Name: BoatHit
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 53d5653bb85c9f049b2243921e58819a, type: 3}
+  - {fileID: 8300000, guid: 741ff337432c9a64bb132665f3c8c5e3, type: 3}
+  - {fileID: 8300000, guid: 353c706db7583174b81d7d247ab7a675, type: 3}

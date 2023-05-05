@@ -27,7 +27,7 @@ public static class ObjectPoolManager
 
         SetUpOBJDict();
 
-        Debug.Log("Object pool init");
+        //Debug.Log("Object pool init");
     }
     private static void SetUpParent()
     {

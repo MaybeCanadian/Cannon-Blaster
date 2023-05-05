@@ -44,6 +44,9 @@ public class CannonController : MonoBehaviour
     [Header("Positions")]
     public CannonPositions position;
 
+    [Header("Sound")]
+    public ClipListNames fireSound = ClipListNames.CannonFire;
+
     private Vector2 moveInput = Vector2.zero;
     #endregion
 
@@ -127,6 +130,18 @@ public class CannonController : MonoBehaviour
         Vector3 direction = (firePoint.position - barrelBase.position).normalized;
 
         ballScript.FireBall(direction * fireForce, firePoint.position);
+
+        ClipList list = ClipDatatBase.GetList(fireSound);
+
+        if (list != null)
+        {
+            AudioClip clip = list.GetClip(true);
+
+            if (clip != null)
+            {
+                AudioManager.PlaySound3D(clip, PLaybackChannelList.Effect, firePoint.position);
+            }
+        }
     }
     private void FireTimerTick(float delta)
     {
