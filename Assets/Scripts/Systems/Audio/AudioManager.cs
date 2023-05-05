@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -97,12 +98,14 @@ public static class AudioManager
 
         string name = channel + "Volume";
 
-        float MaxVol = 20;
-        float minVol = -80;
+        float value = amount / 10.0f;
 
-        float volume = minVol + ((MaxVol - minVol) / 10) * amount; 
+        if(value == 0)
+        {
+            value = 0.0001f;
+        }
 
-        mixer.SetFloat(name, volume);
+        mixer.SetFloat(name, Mathf.Log10(value) * 20);
     }
     #endregion
 }
