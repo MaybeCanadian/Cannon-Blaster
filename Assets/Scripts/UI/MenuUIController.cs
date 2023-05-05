@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class MenuUIController : MonoBehaviour
 {
+    private void Start()
+    {
+        AudioManager.OutSideInit();
+    }
     public void OnPlayButtonPress()
     {
         SceneChanger.GoToGameFromMain();

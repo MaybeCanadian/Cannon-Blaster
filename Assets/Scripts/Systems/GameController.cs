@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
+        AudioManager.OutSideInit();
+
         CannonManager.SetAllState(true);
 
         CannonManager.SetCannonState(CannonPositions.FirstLeft, true);
