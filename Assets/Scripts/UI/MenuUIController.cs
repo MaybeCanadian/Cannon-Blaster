@@ -9,11 +9,11 @@ public class MenuUIController : MonoBehaviour
 {
     public void OnPlayButtonPress()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneChanger.GoToGameFromMain();
     }
     public void OnOptionsButtonPress()
     {
-        SceneManager.LoadScene("Options");
+        SceneChanger.GoToOptionsFromMain();
     }
     public void OnQuitButtonPress()
     {

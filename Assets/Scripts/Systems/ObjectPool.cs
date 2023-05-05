@@ -26,6 +26,8 @@ public static class ObjectPoolManager
         SetUpParent();
 
         SetUpOBJDict();
+
+        Debug.Log("Object pool init");
     }
     private static void SetUpParent()
     {
@@ -65,6 +67,8 @@ public static class ObjectPoolManager
     /// <returns></returns>
     public static GameObject GetObjectFromPool(PooledObjects obj)
     {
+        CheckInit();
+
         if(!poolDict.ContainsKey(obj))
         {
             Debug.LogError("ERROR - Could not get object from pool, Pool Dictionary does not contain a dictionary for that object.");
@@ -81,6 +85,8 @@ public static class ObjectPoolManager
     /// <returns></returns>
     public static bool ReturnObjectToPool(GameObject obj, PooledObjects objType)
     {
+        CheckInit();
+
         if (!poolDict.ContainsKey(objType))
         {
             Debug.LogError("ERROR - Could not return object to pool, pool dictionary does not contain a pool for the object.");
@@ -92,6 +98,17 @@ public static class ObjectPoolManager
         return true;
     }
     #endregion
+
+    public static void ResetManager()
+    {
+        CheckInit();
+
+        poolDict.Clear();
+
+        GameObject.Destroy(poolParent);
+
+        poolDict = null;
+    }
 }
 
 [System.Serializable]
@@ -116,7 +133,6 @@ public class Pool
 
         Populate(startingAmount);
     }
-
     private void Populate(int amount)
     {
         poolQueue = new Queue<GameObject>();

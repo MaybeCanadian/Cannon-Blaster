@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerInputController : MonoBehaviour
 {
+    #region Event Dispatchers
+    public delegate void ModeSwitchEvent();
+    public static ModeSwitchEvent pause;
+    public static ModeSwitchEvent resume;
+    #endregion
+
     [Header("Objects")]
     public CannonController cannon;
     public PlayerMovement player;
@@ -216,6 +223,36 @@ public class PlayerInputController : MonoBehaviour
     }
     #endregion
 
+    #region Pause
+    public void OnPauseButtonPressed(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+
+        Pause();
+    }
+    public void OnAcceptPressed(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+
+        SceneChanger.GoToMainFromGame();
+    }
+    public void OnBackPressed(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+
+        Unpause();
+    }
+    #endregion
+
     #region Mode Switching
     public void SwitchToPlayer()
     {
@@ -243,7 +280,31 @@ public class PlayerInputController : MonoBehaviour
 
         input.SwitchCurrentActionMap("Cannon");
 
-        Debug.Log("switched");
+        //Debug.Log("switched");
+    }
+    public void Pause()
+    {
+        input.SwitchCurrentActionMap("Pause");
+
+        Cursor.lockState = CursorLockMode.None;
+
+        pause?.Invoke();
+    }
+    public void Unpause()
+    {
+        switch (currentMode)
+        {
+            case PlayerControlMode.Player:
+                input.SwitchCurrentActionMap("Player");
+                break;
+            case PlayerControlMode.Cannon:
+                input.SwitchCurrentActionMap("Cannon");
+                break;
+        }
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        resume?.Invoke();
     }
     private bool CheckAnyValid()
     {
@@ -307,5 +368,6 @@ public enum PlayerControlMode
 {
     NULL,
     Player,
-    Cannon
+    Cannon,
+    Pause
 }

@@ -7,6 +7,8 @@ public class OptionsUIController : MonoBehaviour
 {
     public void OnBackButtonPressed()
     {
-        SceneManager.LoadScene("Menu");
+        SceneChanger.GoToMainFromOptions();
     }
+
+    
 }

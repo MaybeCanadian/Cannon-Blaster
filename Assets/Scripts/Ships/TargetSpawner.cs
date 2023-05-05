@@ -73,6 +73,12 @@ public static class TargetSpawner
 
         GameObject ship = ObjectPoolManager.GetObjectFromPool(PooledObjects.ShipTarget);
 
+        if(ship == null)
+        {
+            Debug.LogError("ERROR - Ship from object pool is null.");
+            return;
+        }
+
         ship.SetActive(true);
 
         ship.transform.position = pos.position; 
@@ -119,5 +125,12 @@ public static class TargetSpawner
     private static void OnTargetDestroyed(float val)
     {
         currentTargets--;
+    }
+    public static void ResetManager()
+    {
+        spawnPoints = new List<Transform>();
+        available = new List<Transform>();
+
+        currentTargets= 0;
     }
 }
