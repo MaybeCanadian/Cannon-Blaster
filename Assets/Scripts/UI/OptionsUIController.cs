@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +10,19 @@ public class OptionsUIController : MonoBehaviour
     int effectVolume;
     int musicVolume;
 
-
+    public TMP_Text masterText;
+    public TMP_Text effectText;
+    public TMP_Text musicText;
 
     private void Start()
     {
-        masterVolume = SaveAndLoadController.LoadSettng(SettingNames.Master);
-        effectVolume = SaveAndLoadController.LoadSettng(SettingNames.Effect);
-        musicVolume = SaveAndLoadController.LoadSettng(SettingNames.Music);
+        masterVolume = SaveAndLoadController.LoadSavedSetting(SettingNames.Master);
+        effectVolume = SaveAndLoadController.LoadSavedSetting(SettingNames.Effect);
+        musicVolume = SaveAndLoadController.LoadSavedSetting(SettingNames.Music);
+
+        UpdateMaster();
+        UpdateEffect();
+        UpdateMusic();
     }
 
     #region Button Events
@@ -31,9 +38,7 @@ public class OptionsUIController : MonoBehaviour
 
         masterVolume = Mathf.Min(masterVolume, 10);
 
-        AudioManager.SetMixerVolume(PLaybackChannelList.Master, masterVolume);
-
-        SaveAndLoadController.SaveSetting(SettingNames.Master, masterVolume);
+        UpdateMaster();
     }
     public void OnMasterDownPressed()
     {
@@ -41,9 +46,15 @@ public class OptionsUIController : MonoBehaviour
 
         masterVolume = Mathf.Max(masterVolume, 0);
 
+        UpdateMaster();
+    }
+    private void UpdateMaster()
+    {
         AudioManager.SetMixerVolume(PLaybackChannelList.Master, masterVolume);
 
-        SaveAndLoadController.SaveSetting(SettingNames.Master, masterVolume);
+        SaveAndLoadController.SaveLoadedSetting(SettingNames.Master, masterVolume);
+
+        masterText.text = masterVolume.ToString();
     }
     #endregion
 
@@ -54,9 +65,7 @@ public class OptionsUIController : MonoBehaviour
 
         effectVolume = Mathf.Min(effectVolume, 10);
 
-        AudioManager.SetMixerVolume(PLaybackChannelList.Effect, effectVolume);
-
-        SaveAndLoadController.SaveSetting(SettingNames.Effect, effectVolume);
+        UpdateEffect();
 
     }
     public void OnEffectDownPressed()
@@ -65,9 +74,15 @@ public class OptionsUIController : MonoBehaviour
 
         effectVolume = Mathf.Max(effectVolume, 0);
 
+        UpdateEffect();
+    }
+    private void UpdateEffect()
+    {
         AudioManager.SetMixerVolume(PLaybackChannelList.Effect, effectVolume);
 
-        SaveAndLoadController.SaveSetting(SettingNames.Effect, effectVolume);
+        SaveAndLoadController.SaveLoadedSetting(SettingNames.Effect, effectVolume);
+
+        effectText.text = effectVolume.ToString();
     }
     #endregion
 
@@ -78,10 +93,7 @@ public class OptionsUIController : MonoBehaviour
 
         musicVolume = Mathf.Min(musicVolume, 10);
 
-        AudioManager.SetMixerVolume(PLaybackChannelList.Music, musicVolume);
-
-        SaveAndLoadController.SaveSetting(SettingNames.Music, musicVolume);
-
+        UpdateMusic();
     }
     public void OnMusicDownPressed() 
     {
@@ -89,10 +101,15 @@ public class OptionsUIController : MonoBehaviour
 
         musicVolume = Mathf.Max(musicVolume, 0);
 
+        UpdateMusic();
+    }
+    private void UpdateMusic()
+    {
         AudioManager.SetMixerVolume(PLaybackChannelList.Music, musicVolume);
 
-        SaveAndLoadController.SaveSetting(SettingNames.Music, musicVolume);
+        SaveAndLoadController.SaveLoadedSetting(SettingNames.Music, musicVolume);
 
+        musicText.text = musicVolume.ToString();
     }
     #endregion
 

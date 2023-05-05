@@ -17,13 +17,15 @@ public static class AudioManager
     }
     private static void CheckInit()
     {
-        if(manager == null)
+        if(mixer == null && manager == null)
         {
             Init();
         }
     }
     private static void Init()
     {
+        Debug.Log("Test");
+
         LoadMixer();
 
         LoadSavedValues();
@@ -49,9 +51,9 @@ public static class AudioManager
     }
     private static void LoadSavedValues()
     {
-        SetMixerVolume(PLaybackChannelList.Master, SaveAndLoadController.LoadSettng(SettingNames.Master));
-        SetMixerVolume(PLaybackChannelList.Effect, SaveAndLoadController.LoadSettng(SettingNames.Effect));
-        SetMixerVolume(PLaybackChannelList.Music, SaveAndLoadController.LoadSettng(SettingNames.Music));
+        SetMixerVolume(PLaybackChannelList.Master, SaveAndLoadController.LoadSavedSetting(SettingNames.Master));
+        SetMixerVolume(PLaybackChannelList.Effect, SaveAndLoadController.LoadSavedSetting(SettingNames.Effect));
+        SetMixerVolume(PLaybackChannelList.Music, SaveAndLoadController.LoadSavedSetting(SettingNames.Music));
     }
     #endregion
 
@@ -69,9 +71,14 @@ public static class AudioManager
     #region Mixer
     public static void SetMixerVolume(PLaybackChannelList channel, int amount)
     {
+        CheckInit();
+
         string name = channel + "Volume";
 
-        float volume = (20 - -80) / (amount / 10);
+        float MaxVol = 20;
+        float minVol = -80;
+
+        float volume = minVol + ((MaxVol - minVol) / 10) * amount; 
 
         mixer.SetFloat(name, volume);
     }

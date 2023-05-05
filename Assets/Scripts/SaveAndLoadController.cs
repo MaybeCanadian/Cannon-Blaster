@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class SaveAndLoadController
 {
-    public static int LoadSettng(SettingNames setting)
+    public static int LoadSavedSetting(SettingNames setting)
     {
         return PlayerPrefs.GetInt(setting.ToString(), 5);
     }
-    public static void SaveSetting(SettingNames setting, int value)
+    public static void SaveLoadedSetting(SettingNames setting, int value)
     {
         PlayerPrefs.SetInt(setting.ToString(), value);
 
