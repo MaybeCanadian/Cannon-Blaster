@@ -56,6 +56,9 @@ public class CannonController : MonoBehaviour
     [Header("Sound")]
     public ClipListNames fireSound = ClipListNames.CannonFire;
 
+    [Header("Visuals Control")]
+    public GameObject prompt;
+
     private Vector2 moveInput = Vector2.zero;
     #endregion
 
@@ -67,6 +70,8 @@ public class CannonController : MonoBehaviour
     private void Start()
     {
         startingYawOffset = transform.localRotation.eulerAngles;
+
+        SetPrompt(false);
     }
     #endregion
 
@@ -222,6 +227,11 @@ public class CannonController : MonoBehaviour
         FireTimerTick(Time.deltaTime);
     }
     #endregion
+
+    public void SetPrompt(bool active)
+    {
+        prompt.SetActive(active);
+    }
 }
 
 [System.Serializable]

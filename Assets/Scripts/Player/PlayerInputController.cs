@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class PlayerInputController : MonoBehaviour
     public delegate void ModeSwitchEvent();
     public static ModeSwitchEvent pause;
     public static ModeSwitchEvent resume;
+    public static ModeSwitchEvent switchToCannon;
+    public static ModeSwitchEvent switchToPlayer;
     #endregion
 
     [Header("Objects")]
@@ -213,11 +214,44 @@ public class PlayerInputController : MonoBehaviour
         if(Physics.Raycast(startPos, direction, out RaycastHit hit, raycastCheckDist, cannonLayer))
         {
             Debug.DrawRay(startPos, direction, Color.green);
+
+            if (currentObject != hit.collider.gameObject && currentObject != null)
+            {
+                CannonController can = currentObject.GetComponent<CannonController>();
+
+                if (can)
+                {
+                    can.SetPrompt(false);
+                }
+            }
+
             currentObject = hit.collider.gameObject;
+
+            if (currentObject != null)
+            {
+                CannonController can = currentObject.GetComponent<CannonController>();
+
+                if (can)
+                {
+                    can.SetPrompt(true);
+                }
+            }
+
         }
         else
         {
             Debug.DrawRay(startPos, direction, Color.red);
+
+            if(currentObject != null)
+            {
+                CannonController can = currentObject.GetComponent<CannonController>();
+
+                if(can)
+                {
+                    can.SetPrompt(false);
+                }
+            }
+
             currentObject = null;
         }
     }
@@ -266,6 +300,8 @@ public class PlayerInputController : MonoBehaviour
         CameraController.instance.AttachToObject(player.head);
 
         input.SwitchCurrentActionMap("Player");
+
+        switchToPlayer?.Invoke();
     }
     public void SwitchToCannon()
     {
@@ -280,7 +316,7 @@ public class PlayerInputController : MonoBehaviour
 
         input.SwitchCurrentActionMap("Cannon");
 
-        //Debug.Log("switched");
+        switchToCannon?.Invoke();
     }
     public void Pause()
     {

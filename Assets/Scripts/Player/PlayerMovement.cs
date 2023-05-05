@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed = 10.0f;
 
     private Vector2 lookInput = Vector2.zero;
+    private Vector3 startPos;
 
     [Header("Jumping")]
     public float jumpForce = 100.0f;
@@ -42,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     private void Init()
     {
         charController = GetComponent<CharacterController>();
+
+        startPos = transform.position;
     }
     #endregion
 
@@ -129,4 +132,36 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(lookInput);
     }
     #endregion
+
+    private void OnTriggerEnter(Collider other)
+    {
+        WaterSplashPlane splash = other.GetComponent<WaterSplashPlane>();
+
+        if(splash != null)
+        {
+            charController.enabled = false;
+
+            transform.position = startPos;
+
+            charController.enabled = true;
+
+            ClipList list = ClipDatatBase.GetList(ClipListNames.WaterSplash);
+
+            if(list == null)
+            {
+                return;
+            }
+
+            AudioClip clip = list.GetClip(true);
+
+            if(clip == null)
+            {
+                return;
+            }
+
+            AudioManager.PlaySound2D(clip, PLaybackChannelList.Effect);
+
+            return;
+        }
+    }
 }
