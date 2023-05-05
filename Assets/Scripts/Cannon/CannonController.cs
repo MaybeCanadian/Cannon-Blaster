@@ -41,6 +41,13 @@ public class CannonController : MonoBehaviour
     public float fireDelay = 1.0f;
     private float fireTimer = 0.0f;
 
+    [Header("Recoil")]
+    private bool recoiling = false;
+    public float recoilRate = 1.0f;
+    public float recoilTime = 0.5f;
+    private float currentRecoilTimer = 0.0f;
+    private int recoilDir = 1;
+
     [Header("Positions")]
     public CannonPositions position;
 
@@ -131,6 +138,10 @@ public class CannonController : MonoBehaviour
 
         ballScript.FireBall(direction * fireForce, firePoint.position);
 
+        recoiling = true;
+        currentRecoilTimer = 0.0f;
+        recoilDir = 1;
+
         ClipList list = ClipDatatBase.GetList(fireSound);
 
         if (list != null)
@@ -148,6 +159,31 @@ public class CannonController : MonoBehaviour
         if(fireTimer < fireDelay)
         {
             fireTimer += delta;
+        }
+    }
+    private void RecoilCannon(float delta)
+    {
+        if(!recoiling)
+        {
+            return;
+        }
+
+        currentRecoilTimer += delta;
+
+        cannonPitch -= recoilRate * delta * recoilDir;
+
+        if(currentRecoilTimer > recoilTime / 2.0f)
+        {
+            currentRecoilTimer = 0.0f;
+
+            if (recoilDir > 0)
+            {
+                recoilDir = -1;
+            }
+            else
+            {
+                recoiling = false;
+            }
         }
     }
     #endregion
@@ -174,6 +210,8 @@ public class CannonController : MonoBehaviour
     #region Update
     private void Update()
     {
+        RecoilCannon(Time.deltaTime);
+
         ChangePitch(moveInput.y, Time.deltaTime);
         ChangeYaw(moveInput.x, Time.deltaTime);
 

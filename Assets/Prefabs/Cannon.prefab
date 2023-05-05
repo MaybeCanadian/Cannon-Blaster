@@ -169,6 +169,10 @@ MonoBehaviour:
   projectile: 0
   fireForce: 200
   fireDelay: 1
+  recoilRate: 20
+  recoilTime: 0.6
+  position: 0
+  fireSound: 0
 --- !u!1 &3743092536541180433
 GameObject:
   m_ObjectHideFlags: 0
